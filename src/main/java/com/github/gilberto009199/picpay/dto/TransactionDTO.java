@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public record TransactionDTO (
-		Long id, 
+		Long id,
 		Long payer,
 		BigDecimal value,
-		LocalDateTime creaatedAt 
+		LocalDateTime creaatedAt
 ){}

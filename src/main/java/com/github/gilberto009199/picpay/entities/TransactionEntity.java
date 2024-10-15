@@ -16,7 +16,7 @@ import lombok.Data;
 @Data
 @Builder
 public class TransactionEntity {
-	@Id 
+	@Id
 	Long id;
 	Long payer;
 	Long payee;
