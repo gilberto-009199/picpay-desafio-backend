@@ -10,6 +10,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TransactionService {
 
@@ -49,5 +51,12 @@ public class TransactionService {
         notificationService.notifyCreateTransaction(newTransaction);
 
         return TransactionDTO.ofTransactionEntity(newTransaction);
+    }
+
+    public List<TransactionDTO> list() {
+        return transactionRepository.findAll()
+            .stream()
+            .map(TransactionDTO::ofTransactionEntity)
+            .toList();
     }
 }

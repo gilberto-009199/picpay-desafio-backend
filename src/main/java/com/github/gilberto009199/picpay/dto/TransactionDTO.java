@@ -1,7 +1,6 @@
 package com.github.gilberto009199.picpay.dto;
 
 import com.github.gilberto009199.picpay.entities.TransactionEntity;
-import com.github.gilberto009199.picpay.entities.WalletEntity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
