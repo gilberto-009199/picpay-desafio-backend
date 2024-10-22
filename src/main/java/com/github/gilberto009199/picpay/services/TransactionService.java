@@ -39,13 +39,13 @@ public class TransactionService {
         var newTransaction = transactionRepository.save(transaction);
 
         // debitar da carteira
-        walletRepository.save(walletPayer.withDebit(newTransaction.getValue()));
+        walletRepository.save(walletPayer.withDebit(newTransaction.getBalance()));
 
         // chamar autorizador
         authorizationService.authorizationCreateTransaction(newTransaction);
 
         // creditar na carteira alvo
-        walletRepository.save(walletPayee.withCredit(newTransaction.getValue()));
+        walletRepository.save(walletPayee.withCredit(newTransaction.getBalance()));
 
         // enviar email via async jobs
         notificationService.notifyCreateTransaction(newTransaction);

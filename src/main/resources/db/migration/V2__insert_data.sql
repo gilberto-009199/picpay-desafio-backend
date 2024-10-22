@@ -1,0 +1,15 @@
+
+INSERT INTO TBL_WALLETS (
+    ID, NAME, CPF, EMAIL, "PASSWORD", "TYPE", BALANCE, "VERSION"
+)
+VALUES(
+    1, 'Gil', 12345678900, 'gil@mail.com', '123456', 1, 1000.00, 1
+);
+
+INSERT INTO
+TBL_WALLETS (
+    ID, NAME, CPF, EMAIL, "PASSWORD", "TYPE", BALANCE, "VERSION"
+)
+VALUES(
+    2, 'Claudio', 12345678901, 'claudio@mail.com', '123456', 2, 1000.00, 1
+);

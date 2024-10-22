@@ -9,15 +9,13 @@ public record TransactionDTO (
 		Long id,
 		Long payer,
         Long payee,
-		BigDecimal value,
-		LocalDateTime createdAt
+		BigDecimal balance
 ){
     public static TransactionDTO ofTransactionEntity(TransactionEntity entity){
         return new TransactionDTO(
             entity.getId(),
             entity.getPayer(),
             entity.getPayee(),
-            entity.getValue(),
-            entity.getCreatedAt());
+            entity.getBalance());
     }
 }

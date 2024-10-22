@@ -16,8 +16,7 @@ public record WalletDTO(
     String email,
 	String password,
 	WalletEnum type,
-	BigDecimal balance,
-	LocalDateTime createdAt
+	BigDecimal balance
 ) {
     public static WalletDTO ofWalletEntity(WalletEntity entity){
         return new WalletDTO(entity.getId(),
@@ -26,7 +25,6 @@ public record WalletDTO(
                              entity.getPassword(),
                              entity.getEmail(),
                              entity.getType(),
-                             entity.getBalance(),
-                             entity.getCreatedAt());
+                             entity.getBalance());
     }
 }

@@ -1,39 +1,32 @@
 package com.github.gilberto009199.picpay.entities;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
+
+import com.github.gilberto009199.picpay.converters.WalletEnumConverter;
 import com.github.gilberto009199.picpay.dto.WalletDTO;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
 
 import com.github.gilberto009199.picpay.enums.WalletEnum;
 
-import jakarta.persistence.Entity;
-
-@Table(name ="tbl_wallets")
+@Entity
+@Table(name ="TBL_WALLETS")
 @With
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class WalletEntity {
 	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 	Long cpf;
     String name;
     String email;
 	String password;
-    @Enumerated(EnumType.ORDINAL)
-	WalletEnum type;
+    @Convert(converter = WalletEnumConverter.class)
+    WalletEnum type;
 	BigDecimal balance;
-	@CreatedDate
-	LocalDateTime createdAt;
 
     public strictfp WalletEntity withCredit(BigDecimal value){
         this.balance = this.balance.add(value);

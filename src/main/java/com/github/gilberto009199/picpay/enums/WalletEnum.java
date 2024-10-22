@@ -4,12 +4,18 @@ public enum WalletEnum {
 	common(1),
 	seller(2);
 
-	private int value;
+	private final int value;
 
 	WalletEnum(int value) {
 		this.value = value;
 	}
-	public void getValue(int value) {
-		this.value = value;
-	}
+	public int getValue() { return this.value;	}
+    public static WalletEnum fromValue(int value) {
+        for (WalletEnum walletEnum : WalletEnum.values()) {
+            if (walletEnum.getValue() == value) {
+                return walletEnum;
+            }
+        }
+        throw new IllegalArgumentException("Valor inválido para WalletEnum: " + value);
+    }
 }

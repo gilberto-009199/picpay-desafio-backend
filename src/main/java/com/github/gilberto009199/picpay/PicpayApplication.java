@@ -6,7 +6,6 @@ import org.springframework.data.jdbc.repository.config.EnableJdbcAuditing;
 import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EnableJpaRepositories
 @EnableJdbcRepositories
 @SpringBootApplication
 public class PicpayApplication {
