@@ -2,7 +2,6 @@ package com.github.gilberto009199.picpay.entities;
 
 import java.math.BigDecimal;
 
-
 import com.github.gilberto009199.picpay.converters.WalletEnumConverter;
 import com.github.gilberto009199.picpay.dto.WalletDTO;
 import jakarta.persistence.*;
@@ -18,7 +17,7 @@ import com.github.gilberto009199.picpay.enums.WalletEnum;
 @NoArgsConstructor
 public class WalletEntity {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	Long cpf;
     String name;

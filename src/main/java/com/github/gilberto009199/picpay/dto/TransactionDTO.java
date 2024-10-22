@@ -2,14 +2,15 @@ package com.github.gilberto009199.picpay.dto;
 
 import com.github.gilberto009199.picpay.entities.TransactionEntity;
 
+import jakarta.validation.constraints.NotNull;
+
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 public record TransactionDTO (
 		Long id,
-		Long payer,
-        Long payee,
-		BigDecimal balance
+        @NotNull Long payer,
+        @NotNull Long payee,
+		@NotNull BigDecimal balance
 ){
     public static TransactionDTO ofTransactionEntity(TransactionEntity entity){
         return new TransactionDTO(

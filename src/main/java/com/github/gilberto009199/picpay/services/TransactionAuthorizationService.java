@@ -3,7 +3,6 @@ package com.github.gilberto009199.picpay.services;
 import com.github.gilberto009199.picpay.dto.AuthorizationDTO;
 import com.github.gilberto009199.picpay.entities.TransactionEntity;
 import com.github.gilberto009199.picpay.exceptions.UnathorizationTransactionException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -24,7 +23,7 @@ public class TransactionAuthorizationService {
 
         var notHasError = !res.getStatusCode().isError();
         var bodyNotEmpty = res.hasBody();
-        var authorized  = notHasError || bodyNotEmpty || !res.getBody().isAuthorized();
+        var authorized  = notHasError || bodyNotEmpty || res.getBody().isAuthorized();
 
         if(!authorized) throw new UnathorizationTransactionException("Not Authorization  Transaction");
 
