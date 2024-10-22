@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import com.github.gilberto009199.picpay.entities.WalletEntity;
 
 @Repository
-public interface WalletRepository extends CrudRepository<WalletEntity, Long>{}
+public interface WalletRepository extends CrudRepository<WalletEntity, Long> {}

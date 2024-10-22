@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 public record TransactionDTO (
 		Long id,
 		Long payer,
+        Long payee,
 		BigDecimal value,
 		LocalDateTime creaatedAt
 ){}
