@@ -35,6 +35,11 @@ public class WalletEntity {
 	@CreatedDate
 	LocalDateTime createdAt;
 
+    public strictfp WalletEntity withCredit(BigDecimal value){
+        this.balance = this.balance.add(value);
+        return this;
+    }
+
     public strictfp WalletEntity withDebit(BigDecimal value){
         this.balance = this.balance.subtract(value);
         return this;

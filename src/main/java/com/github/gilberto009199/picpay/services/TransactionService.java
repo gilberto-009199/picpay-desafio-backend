@@ -1,10 +1,12 @@
 package com.github.gilberto009199.picpay.services;
 
+import com.github.gilberto009199.picpay.exceptions.InvalidTransactionException;
 import com.github.gilberto009199.picpay.validators.TransactionValidator;
 import com.github.gilberto009199.picpay.dto.TransactionDTO;
 import com.github.gilberto009199.picpay.entities.TransactionEntity;
 import com.github.gilberto009199.picpay.repositories.TransactionRepository;
 import com.github.gilberto009199.picpay.repositories.WalletRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,12 @@ public class TransactionService {
     private TransactionRepository transactionRepository;
     @Autowired
     private WalletRepository walletRepository;
+    @Autowired
+    private TransactionAuthorizationService authorizationService;
+    @Autowired
+    private NotificationService notificationService;
 
+    @Transactional
     public TransactionDTO create(TransactionDTO dto){
 
         // validar parametro
@@ -24,7 +31,7 @@ public class TransactionService {
         var transaction  = TransactionEntity.ofTransactionDTO(dto);
 
         var valid = TransactionValidator.validateCreateTransaction(transaction, walletPayer, walletPayee);
-        if(!valid) throw new RuntimeException("Transaction InValid");
+        if(!valid) throw new InvalidTransactionException("Transaction Invalid");
 
         // criar a transação
         var newTransaction = transactionRepository.save(transaction);
@@ -33,12 +40,14 @@ public class TransactionService {
         walletRepository.save(walletPayer.withDebit(newTransaction.getValue()));
 
         // chamar autorizador
+        authorizationService.authorizationCreateTransaction(newTransaction);
 
         // creditar na carteira alvo
+        walletRepository.save(walletPayee.withCredit(newTransaction.getValue()));
 
         // enviar email via async jobs
+        notificationService.notifyCreateTransaction(newTransaction);
 
-
-        return null;
+        return TransactionDTO.ofTransactionEntity(newTransaction);
     }
 }

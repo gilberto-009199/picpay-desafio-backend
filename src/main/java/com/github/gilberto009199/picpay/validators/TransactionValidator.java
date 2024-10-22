@@ -10,6 +10,10 @@ public class TransactionValidator {
 
     public static boolean validateCreateTransaction(TransactionEntity transaction, WalletEntity walletPayer, WalletEntity walletPayee){
 
+        if(transaction == null) return false;
+        if(walletPayer == null) return false;
+        if(walletPayee == null) return false;
+
         // 1. Não pode transferir para você mesmo (walletPayer == walletPayee)
         if(walletPayer.getId().equals(walletPayee.getId())) return false;
 
