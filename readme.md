@@ -1,3 +1,31 @@
+# BackEnd PicPay
+
+Implementação em Java do Desafio PicPay
++ http create Transaction
+```bash
+$ curl -X POST localhost:8080/transaction -H "Content-Type: application/json" -d '{"balance": 100, "payer": 1, "payee": 2}'
+```
++ http list transaction
+```bash
+$ curl -X GET localhost:8080/transaction
+```
++ http list wallet
+```bash
+$ curl -X GET localhost:8080/wallet
+```
+## Bibliotecas
+
+* [SpringBoot](https://spring.io) - Plataforma para desenvolvimento web em java
+* [Lombok](https://projectlombok.org) - Biblioteca para agilizar a codificação em Java
+* [Kafka](https://kafka.apache.org/quickstart) - Plataforma para as Queues
+* [H2](https://www.h2database.com) - Sistema de gerenciamento de banco de dados relacional escrito em Java.
+* [Docker](https://docs.docker.com) - Plataforma para containers
+
+
+## Swagger
+
+![Swagger](./swagger.png)
+
 # Desafio Back-end PicPay
 
 Primeiramente, obrigado pelo seu interesse em trabalhar na melhor plataforma de pagamentos do mundo!
