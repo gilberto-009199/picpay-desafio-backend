@@ -1,6 +1,9 @@
 # BackEnd PicPay
 
-Implementação em Java do Desafio PicPay
+Backend com API Rest, para gerenciar Carteiras e Transações. Usando **SpringBoot**, **Docker**, **Kafka** e **Lombok**.
+
+### Use:
+
 + http create Transaction
 ```bash
 $ curl -X POST localhost:8080/transaction -H "Content-Type: application/json" -d '{"balance": 100, "payer": 1, "payee": 2}'
