@@ -1,5 +1,12 @@
 # BackEnd PicPay
 
+
+<img align="right" src="./assets/spring16x16.svg" alt="Spring Boot" width="32px"/>
+<img align="right" src="./assets/docker16x16.svg" alt="Docker" width="32px"/>
+<img align="right" src="./assets/swagger.svg" alt="Swagger" width="32px"/>
+<img align="right" src="./assets/lombok.svg" alt="Lombok" width="32px"/>
+<img align="right" src="./assets/kafka16x16.svg" alt="Kafka" width="32px"/>
+
 Backend com API Rest, para gerenciar Carteiras e Transações. Usando **SpringBoot**, **Docker**, **Kafka** e **Lombok**.
 
 ### Use:
