@@ -8,6 +8,12 @@
 <img align="right" src="./assets/kafka16x16.svg" alt="Kafka" width="32px"/>
 
 Backend com API Rest, para gerenciar Carteiras e Transações. Usando **SpringBoot**, **Docker**, **Kafka** e **Lombok**.
+# How Run:
+
+```shell
+# Use Docker
+$ docker compose up
+```
 
 ### Use:
 
