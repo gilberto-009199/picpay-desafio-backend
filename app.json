@@ -1,0 +1,21 @@
+{
+  "name": "java-kafka-app",
+  "description": "Aplicação Java com Kafka no Heroku",
+  "env": {
+    "JAVA_TOOL_OPTIONS": {
+      "description": "Configurações adicionais da JVM para execução no Heroku",
+      "value": "-Xmx300m"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/java"
+    }
+  ],
+  "addons": [
+    "heroku-kafka:basic-0"
+  ],
+  "scripts": {
+    "postdeploy": "echo 'Kafka Java App implantado com sucesso!'"
+  }
+}
