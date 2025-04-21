@@ -1,5 +1,5 @@
 swagger_files/
-target/
+target
 target/classes
 /node_modules
 /public/hot
